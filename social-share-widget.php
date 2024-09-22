@@ -15,14 +15,19 @@ class Social_Share_Widget extends WP_Widget {
     function __construct() {
         parent::__construct(
             'social_share_widget', 
-            __('Social Share Widget', 'text_domain'), 
-            array('description' => __('A widget to share the current page URL on social media.', 'text_domain'))
+            __('Social Share Widget by Edronet', 'text_domain'), 
+            array('description' => __('A widget to share the current page URL on social media platforms.', 'text_domain'))
         );
     }
 
     // Exibe o conteúdo do widget
     public function widget($args, $instance) {
         echo $args['before_widget'];
+
+        // Título opcional (se você quiser permitir títulos personalizados para o widget)
+        if (!empty($instance['title'])) {
+            echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
+        }
 
         echo '<div class="social-share">';
         echo '<p>Compartilhe:</p>';
@@ -40,8 +45,8 @@ class Social_Share_Widget extends WP_Widget {
         <a href="https://www.facebook.com/sharer.php?u=<?php echo $url; ?>" target="_blank">
             <img src="<?php echo plugins_url('images/facebook.png', __FILE__); ?>" alt="Facebook">
         </a>
-        <a href="https://twitter.com/share?url=<?php echo $url; ?>" target="_blank">
-            <img src="<?php echo plugins_url('images/twitter.png', __FILE__); ?>" alt="Twitter">
+        <a href="https://x.com/share?url=<?php echo $url; ?>" target="_blank">
+            <img src="<?php echo plugins_url('images/x.png', __FILE__); ?>" alt="X (antigo Twitter)">
         </a>
         <a href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" target="_blank">
             <img src="<?php echo plugins_url('images/whatsapp.png', __FILE__); ?>" alt="WhatsApp">
@@ -56,14 +61,25 @@ class Social_Share_Widget extends WP_Widget {
         <?php
     }
 
-    // Função de configuração do widget (opcional)
+    // Formulário de configuração do widget no painel
     public function form($instance) {
-        // Deixe em branco por enquanto
+        if (isset($instance['title'])) {
+            $title = $instance['title'];
+        } else {
+            $title = __('Compartilhe', 'text_domain');
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
+        </p>
+        <?php
     }
 
     // Atualiza as configurações do widget
     public function update($new_instance, $old_instance) {
         $instance = array();
+        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
         return $instance;
     }
 }
