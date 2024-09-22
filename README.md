@@ -1,7 +1,7 @@
-# edronet-social-share-widget
+# Edronet Social Share Widget
 Social Share Widget by Edronet is a lightweight WordPress plugin for sharing pages on Facebook, X (formerly Twitter), LinkedIn, WhatsApp, and Telegram. Easily added via the widget interface, it lets users share the current page URL with one click. Developed by Edvaldo Rodrigues, licensed under MIT.
 
-# Edronet Social Share Widget
+
 Edronet Social Share Widget é um plugin leve para WordPress que adiciona um menu de compartilhamento social nas principais redes sociais, incluindo Facebook, X (anteriormente Twitter), LinkedIn, WhatsApp e Telegram. Com mais de 11 anos de experiência no desenvolvimento de soluções digitais, a Edronet se orgulha de fornecer ferramentas práticas e eficientes para a web.
 
 ## Funcionalidades
