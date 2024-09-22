@@ -21,7 +21,7 @@ Não é necessária nenhuma configuração adicional. O plugin funcionará autom
 Aceitamos contribuições para melhorar o plugin. Por favor, envie seus pull requests ou relate problemas diretamente no repositório.
 
 ## Suporte
-Para suporte ou mais informações, visite nosso site: Edronet.
+Para suporte ou mais informações, visite nosso site: # https://edronet.com
 
 ## Licença
 Este plugin é licenciado sob a MIT License.
